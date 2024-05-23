@@ -31,6 +31,5 @@ function cookieClicked() {
   cookieCount += 1
   localStorage.cookieCount = cookieCount
   console.log(localStorage.cookieCount)
-  updateCookieCount(cookieCount)
 }
 
