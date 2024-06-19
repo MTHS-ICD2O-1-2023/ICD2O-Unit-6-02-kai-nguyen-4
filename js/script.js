@@ -5,31 +5,17 @@
 // This file contains the JS functions for index.html
 "use strict"
 
-/**
- * Check service worker.
- */
-if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/ICS2O-Unit-6-02-kai-nguyen-4/sw.js", {
-    scope: "/ICS2O-Unit-6-02-kai-nguyen-4/",
-  })
-}
-
-let cookieCount = 0
-
 function updateCookieCount() {
-  // save to local storage
-  console.log(localStorage.cookieCount)
-  if (localStorage.cookieCount) {
-    cookieCount = Number(localStorage.cookieCount)
+  if (localStorage.clicks) {
+    localStorage.clicks = Number(localStorage.clicks)
   } else {
-    localStorage.cookieCount = cookieCount
+    localStorage.clicks = 1
   }
-  document.getElementById("answer").innerHTML = "You have: " + cookieCount + " cookies"
+  document.getElementById("clicks").innerHTML = localStorage.clicks
 }
 
 function cookieClicked() {
-  cookieCount += 1
-  localStorage.cookieCount = cookieCount
-  console.log(localStorage.cookieCount)
-}
+  localStorage.clicks = Number(localStorage.clicks) + 1
 
+  document.getElementById("clicks").innerHTML = localStorage.clicks
+}
